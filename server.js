@@ -62,7 +62,7 @@ function createNewAnimal(body, animalsArray) {
     //our function's main code will go here
     fs.writeFileSync(
         path.join(__dirname, './data/animals.json'), 
-        JSON.stringify({animals: animalsArray }, null, 2)
+        JSON.stringify({ animals: animalsArray }, null, 2)
     );
 
     //return finished code to post route for response
@@ -79,7 +79,7 @@ function validateAnimal(animal) {
     if (!animal.diet || typeof animal.species !== 'string') {
         return false;
     }
-    if (!animal.personalityTraits || typeof animal.personalityTraits !== 'string') {
+    if (!animal.personalityTraits || !Array.isArray(animal.personalityTraits)) {
         return false;
     }
     return true;
@@ -116,6 +116,18 @@ app.post(`/api/animals`, (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 

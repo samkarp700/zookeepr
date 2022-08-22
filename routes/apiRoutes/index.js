@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { filterByQuery, findById, createNewAnimal, validateAnimal, } = require("../../lib/animals");
 const { animals } = require("../../data/animals");
 
+router.use(require('./zookeeperRoutes'));
+
 router.get("/animals", (req, res) => {
   let results = animals;
   if (req.query) {
@@ -31,5 +33,7 @@ router.post("/animals", (req, res) => {
     res.json(animal);
   }
 });
+
+
 
 module.exports = router;

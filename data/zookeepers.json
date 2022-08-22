@@ -59,6 +59,18 @@
       "age": 64,
       "favoriteAnimal": "Rabbit",
       "id": "9"
+    },
+    {
+      "name": "sam",
+      "age": 30,
+      "favoriteAnimal": "tigers",
+      "id": "10"
+    },
+    {
+      "name": "andy",
+      "age": 33,
+      "favoriteAnimal": "zebras",
+      "id": "11"
     }
   ]
 }
